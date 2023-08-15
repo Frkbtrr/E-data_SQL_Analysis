@@ -46,9 +46,8 @@ ADD COLUMN DaysTakenForDelivery INT;
 UPDATE combined_table
 SET DaysTakenForDelivery = DATEDIFF(Ship_Date ,Order_Date);
 
-SELECT DISTINCT Cust_id, Ord_id, Order_Date
-FROM combined_table
-ORDER BY Cust_id;
+SELECT *
+FROM combined_table;
 
 
 -- 4. Find the customer whose order took the maximum time to get delivered.
