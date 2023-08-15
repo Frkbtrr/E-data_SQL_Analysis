@@ -88,24 +88,7 @@ FROM combined_table o1
 GROUP BY Cust_id) subquery
 ORDER BY Cust_id;
 
-
-SELECT *
-FROM combined_table;
-
-SELECT 
-    customer_name,
-    SUM(CASE WHEN Prod_id = 'Prod_11' THEN Order_Quantity ELSE 0 END) AS quantity_product_11,
-    SUM(CASE WHEN Prod_id = 'Prod_14' THEN Order_Quantity ELSE 0 END) AS quantity_product_14,
-    SUM(Order_Quantity) AS total_quantity,
-    SUM(CASE WHEN Prod_id = 'Prod_11' THEN Order_Quantity ELSE 0 END) + 
-     SUM(CASE WHEN Prod_id = 'Prod_14' THEN Order_Quantity ELSE 0 END) / SUM(Order_Quantity) AS product_ratio
-FROM 
-    combined_table
-WHERE 
-    Prod_id = 'Prod_11' OR Prod_id='Prod_14'
-GROUP BY 
-    customer_name
-;
+--7. Write a query that returns customers who purchased both product 11 and  product 14, as well as the ratio of these products to the total number of  products purchased by the customer
 
 SELECT 
     Customer_Name, 
